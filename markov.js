@@ -15,7 +15,7 @@ class MarkovMachine {
   /** Get markov chain: returns object of Markov chains.
    *
    *  For text of "The cat in the hat.", chains will be:
-   * 
+   *
    *  {
    *   "The": ["cat"],
    *   "cat": ["in"],
@@ -23,11 +23,19 @@ class MarkovMachine {
    *   "the": ["hat."],
    *   "hat.": [null],
    *  }
-   * 
+   *
    * */
 
   getChains() {
-    // TODO: implement this!
+    let chains = {};
+
+    for (let i=0; i<this.words.length; i++){
+      let nextWord = []
+      chains[this.words[i]] = nextWord.push(this.words[i+1] || null);
+      chains[this.words[i]] = nextWord
+    }
+
+    return chains
   }
 
 
