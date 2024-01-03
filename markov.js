@@ -1,3 +1,5 @@
+"use strict";
+
 /** Textual markov chain generator. */
 
 
@@ -43,7 +45,10 @@ class MarkovMachine {
 
   //Ask about best practice for code below. static? or
   // regular function outside of class??
-  static randomChoice(words){
+
+  /** Takes in an array of words and return a word at a random index. */
+
+  static randomChoice(words){ //non-static method and use underscore (internal use)
     return words[Math.floor(Math.random() * words.length)]
   }
 
@@ -52,7 +57,7 @@ class MarkovMachine {
 
   getText() {
     let result = [];
-    let startKey = this.words[0];
+    let startKey = this.words[0]; //TODO:rename to "key" / "currWord"
 
     while (startKey !== null){
       result.push(startKey);
